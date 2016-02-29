@@ -112,7 +112,7 @@
         <!--> local jars -->
         <dependency>
             <groupId>org.cellocad</groupId>
-            <artifactId>netsynth</artifactId>
+            <artifactId>NetSynth</artifactId>
             <version>1.0</version>
             <type>jar</type>
         </dependency>

@@ -31,6 +31,8 @@ import java.io.IOException;
 import java.lang.reflect.Modifier;
 import java.util.*;
 import java.util.UUID;
+import org.cellocad.BU.netsynth.NetSynth;
+import org.cellocad.BU.netsynth.Utilities;
 
 //import net.sf.json.JSONObject;
 //import org.slf4j.Logger;
@@ -1775,8 +1777,9 @@ public class DNACompiler {
             }
         }
 
-
-        GW = org.cellocad.BU.netsynth.NetSynth.runNetSynth(
+        NetSynth netsynth = new NetSynth("netSynth",Utilities.getNetSynthResourcesFilepath() ,_options.get_output_directory());
+        
+        GW = netsynth.runNetSynth(
                 verilog_filepath,
                 new ArrayList<NetSynthSwitch>(),
                 motifLibrary

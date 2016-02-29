@@ -161,8 +161,8 @@ public class MainController extends BaseController {
             throw new CelloUnauthorizedException("invalid username/password");
         }
         String username = auth.getUsername(basic);
-
-        DAGW GW = NetSynth.runNetSynthCode(verilog_text, new ArrayList<NetSynthSwitch>(), new JSONArray());
+        NetSynth netsynth = new NetSynth(username + "netSynthAPIcall");
+        DAGW GW = netsynth.runNetSynthCode(verilog_text, new ArrayList<NetSynthSwitch>(), new JSONArray());
 
         org.cellocad.MIT.dnacompiler.LogicCircuit abstract_logic_circuit = new LogicCircuit(GW.Gates, GW.Wires);
         LogicCircuitUtil.renameGatesWires(abstract_logic_circuit);

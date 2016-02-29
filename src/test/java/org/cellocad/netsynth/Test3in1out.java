@@ -55,6 +55,7 @@ public class Test3in1out {
 
 
         String[] files = Util.filenamesInDirectory("resources/verilog/3-input");
+        NetSynth netSynth = new NetSynth("test3in1out");
         ArrayList<String> verilogs = new ArrayList<>();
         for (String file : files) {
             if (file.endsWith(".v")) {
@@ -75,7 +76,7 @@ public class Test3in1out {
             }
 
             String verilog_file = "resources/verilog/3-input/" + verilog;
-            DAGW dagw = NetSynth.runNetSynth(verilog_file, new ArrayList<NetSynthSwitch>(), motifLibrary);
+            DAGW dagw = netSynth.runNetSynth(verilog_file, new ArrayList<NetSynthSwitch>(), motifLibrary);
 
             int gate_count = 0;
             for(Gate g: dagw.Gates) {
